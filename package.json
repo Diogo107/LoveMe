@@ -36,5 +36,18 @@
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.18.2",
     "@ironh/eslint-config": "^0.0.2"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diogo107/LoveMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diogo107/LoveMe/issues"
+  },
+  "homepage": "https://github.com/Diogo107/LoveMe#readme",
+  "description": ""
 }

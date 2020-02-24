@@ -4,6 +4,8 @@ const { Router } = require('express');
 
 const passport = require('passport');
 
+const routeGuard = require('./../middleware/route-guard');
+
 const router = new Router();
 
 router.get('/sign-up', (req, res, next) => {
@@ -22,10 +24,14 @@ router.get('/sign-in', (req, res, next) => {
   res.render('sign-in');
 });
 
+router.get('/profile', (req, res, next) => {
+  res.render('profile');
+});
+
 router.post(
   '/sign-in',
   passport.authenticate('local-sign-in', {
-    successRedirect: '/private',
+    successRedirect: '/profile',
     failureRedirect: '/sign-in'
   })
 );
