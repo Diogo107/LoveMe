@@ -12,6 +12,9 @@
       <a href="/">Home</a>
       {{#if user}}
         <!-- <a href="/">{{user.name}}'s Profile</a> -->
+        <a href="/authentication/profile">{{user.name}}'s</a>
+        <a href="/animal/register-animal">Register Animal</a>
+        <a href="/animal/search-list">Search</a>
         <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
         </form>

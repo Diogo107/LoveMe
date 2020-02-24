@@ -15,7 +15,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/private',
+    successRedirect: '/authentication/profile',
     failureRedirect: '/sign-up'
   })
 );
@@ -25,13 +25,13 @@ router.get('/sign-in', (req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-  res.render('profile');
+  res.render('authentication/profile');
 });
 
 router.post(
   '/sign-in',
   passport.authenticate('local-sign-in', {
-    successRedirect: '/profile',
+    successRedirect: '/authentication/profile',
     failureRedirect: '/sign-in'
   })
 );

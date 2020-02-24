@@ -19,8 +19,9 @@ const schema = new mongoose.Schema(
       type: String,
       trim: true
     },
-    photos: {
-      type: String
+    picture: {
+      type: String,
+      default: 'https://cdn3.iconfinder.com/data/icons/shipping-and-delivery-2-1/512/54-512.png'
     },
     passwordHash: {
       type: String,
