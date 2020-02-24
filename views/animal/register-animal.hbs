@@ -1,6 +1,6 @@
-<form action="">
+<form action="/animal/single-animal" method="POST">
   <label for="name">Name</label>
-  <input type="text" required placeholder="Animal's Name">
+  <input type="text" name='name' required placeholder="Animal's Name">
 
   <label for="specie">Animal Specie</label>
   <select name="specie" id="specie">
@@ -9,7 +9,7 @@
   </select>
 
   <label for="breed">Breed</label>
-  <select name="" id="" placeholder="Animal's Name">
+  <select name="breed" id="breed" placeholder="Animal's Name">
     <option value="Any">Qualquer</option>
     <option value="----- Gatos -----">----- Gatos -----</option>
     <option value="Europeu">Europeu</option>
@@ -23,35 +23,35 @@
     <option value="Rafeiro" selected>Rafeiro</option>
   </select>
 
-  <label for="animal-age">Age</label>
-  <select name="animal-age" id="animal-age">
+  <label for="animalAge">Age</label>
+  <select name="animalAge" id="animalAge">
     <option value="lessThenOne">- 1 year</option>
     <option value="betweenOneandFive">1 to 5 Years</option>
     <option value="moreThenFive">+ 5 years</option>
   </select>
 
-  <label for="animal-gender">Animal Gender</label>
-  <select name="animal-gender" id="animal-gender">
+  <label for="animalGender">Animal Gender</label>
+  <select name="animalGender" id="animalGender">
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
 
-  <label for="animal-size">Animal Size</label>
-  <select name="animal-age" id="animal-age">
+  <label for="animalSize">Animal Size</label>
+  <select name="animalSize" id="animalSize">
     <option value="small">Small</option>
     <option value="medium">Medium</option>
     <option value="large">Large</option>
     <option value="x-large">Extra Large</option>
   </select>
 
-  <label for="animal-vaccination">Animal Vaccination</label>
-  <select name="animal-gender" id="animal-gender">
+  <label for="animalVaccination">Animal Vaccination</label>
+  <select name="animalVaccination" id="animalVaccination">
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
 
-    <label for="animal-castration">Animal Castration</label>
-  <select name="animal-gender" id="animal-gender">
+    <label for="animalCastration">Animal Castration</label>
+  <select name="animalCastration" id="animalCastration">
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
@@ -59,10 +59,10 @@
 {{!--   <label for="animal-picture">Animal Picture</label>
   <input type="file" accept="images/*" id="animal-picture" alt="Animal Image"> --}}
 
-  <label for="animal-description">Animal Description</label>
-  <textarea name="animal-description" id="animal-description" cols="30" rows="10" placeholder='"Tell something about more about me..."'></textarea>
+  <label for="animalDescription">Animal Description</label>
+  <textarea name="animalDescription" id="animalDescription" cols="30" rows="10" placeholder='"Tell something about more about me..."'></textarea>
 
-
+  <button type="submit">Register</button>
 
 </form>
 

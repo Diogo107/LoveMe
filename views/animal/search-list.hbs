@@ -7,4 +7,15 @@
 </aside>
 <section>
   {{!-- Aqui vai ter os cards --}}
+  {{#each animal}} 
+  <div class="card">
+  <div>
+    <img src="{{photos}}" alt="{{name}}'s Photos'">
+  </div>
+  <div class="name">
+    <h3>{{name}}</h3>
+  </div>
+  
+</div>
+  {{/each}}
 </section>
