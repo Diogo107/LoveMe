@@ -55,13 +55,19 @@ const schema = new mongoose.Schema(
       enum: ['yes', 'no', 'Undefined'],
       default: 'Undefined'
     },
-    photos: {
-      type: String,
-      default: 'https://www.trop-fort.net/wp-content/uploads/2019/06/pets-image-for-all.jpg'
-    },
+    photos: [
+      {
+        type: String
+      }
+    ],
     animalDescription: {
       type: String,
       default: null
+    },
+    user: {
+      type: mongoose.Types.ObjectId,
+      required: true,
+      ref: 'User'
     }
   },
   {

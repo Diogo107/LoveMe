@@ -1,33 +1,25 @@
-<form action="/animal/single-animal" method="POST" enctype="multipart/form-data">
+<form action="/animal/search-animal" method="POST">
   <label for="name">Name</label>
-  <input type="text" name='name' required placeholder="Animal's Name">
-  
-  <label for="input-photos">Photos</label>
-  <input type="file" name="photos" id="input-photos" accept="image/*" multiple />
-
-  <label for="specie">Animal Specie</label>
-  <select name="specie" id="specie">
-    <option value="cat">Cat</option>
-    <option value="dog">Dog</option>
-  </select>
+  <input type="text" name='name' placeholder="Animal's Name">
 
   <label for="breed">Breed</label>
   <select name="breed" id="breed" placeholder="Animal's Name">
-    <option value="Any">Qualquer</option>
-    <option value="----- Gatos -----">----- Gatos -----</option>
+    <option value="" selected>Choose...</option>
+    <option value="">----- Gatos -----</option>
     <option value="Europeu">Europeu</option>
-    <option value="Angorá" selected>Angorá</option>
-    <option value="Azul Russo" selected>Azul Russo</option>
-    <option value="B. Noruega" selected>B. Noruega</option>
-    <option value="Other breed..." selected>Outra Raça...</option>
-    <option value="Persa" selected>Persa</option>
-    <option value="Siamês" selected>Siamês</option>
-    <option value="----- Cães -----" selected>----- Cães -----</option>
-    <option value="Rafeiro" selected>Rafeiro</option>
+    <option value="Angorá">Angorá</option>
+    <option value="Azul Russo">Azul Russo</option>
+    <option value="B. Noruega">B. Noruega</option>
+    <option value="Other breed...">Outra Raça...</option>
+    <option value="Persa">Persa</option>
+    <option value="Siamês">Siamês</option>
+    <option value="----- Cães -----">----- Cães -----</option>
+    <option value="Rafeiro">Rafeiro</option>
   </select>
 
   <label for="animalAge">Age</label>
   <select name="animalAge" id="animalAge">
+    <option value="" selected>Choose...</option>
     <option value="lessThenOne">- 1 year</option>
     <option value="betweenOneandFive">1 to 5 Years</option>
     <option value="moreThenFive">+ 5 years</option>
@@ -35,12 +27,14 @@
 
   <label for="animalGender">Animal Gender</label>
   <select name="animalGender" id="animalGender">
+    <option value="" selected>Choose...</option>
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
 
   <label for="animalSize">Animal Size</label>
   <select name="animalSize" id="animalSize">
+    <option value="" selected>Choose...</option>
     <option value="small">Small</option>
     <option value="medium">Medium</option>
     <option value="large">Large</option>
@@ -49,19 +43,21 @@
 
   <label for="animalVaccination">Animal Vaccination</label>
   <select name="animalVaccination" id="animalVaccination">
+    <option value="" selected>Choose...</option>
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
 
     <label for="animalCastration">Animal Castration</label>
   <select name="animalCastration" id="animalCastration">
+    <option value="" selected>Choose...</option>
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
 
-  <label for="animalDescription">Animal Description</label>
-  <textarea name="animalDescription" id="animalDescription" cols="30" rows="10" placeholder='"Tell something about more about me..."'></textarea>
+{{!--   <label for="animal-picture">Animal Picture</label>
+  <input type="file" accept="images/*" id="animal-picture" alt="Animal Image"> --}}
 
-  <button type="submit">Register</button>
+  <button type="submit">Search</button>
 
 </form>

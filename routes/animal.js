@@ -1,14 +1,11 @@
 'use strict';
 
 const { Router } = require('express');
-
 const passport = require('passport');
-
 const routeGuard = require('./../middleware/route-guard');
-
 const Animal = require('./../models/animal');
-
 const router = new Router();
+const uploader = require('./../middleware/upload-files');
 
 router.get('/search-list', (req, res, next) => {
   Animal.find().then(animal => {
@@ -17,13 +14,22 @@ router.get('/search-list', (req, res, next) => {
   });
 });
 
+router.post('/search-animal', (req, res, next) => {
+  const body = req;
+  console.log(body.body);
+});
+
 router.get('/register-animal', (req, res, next) => {
   res.render('animal/register-animal');
 });
 
-router.post('/single-animal', (req, res, next) => {
+router.post('/single-animal', uploader.array('photos', 10), (req, res, next) => {
   console.log('i am adding an animal', req.body);
-  //  const age = req.body.animalAge;
+  console.log(req.session.passport.user);
+  const urls = req.files.map(file => {
+    return file.url;
+  });
+  //const userId = req.session.passport.user;
   const {
     name,
     specie,
@@ -44,7 +50,9 @@ router.post('/single-animal', (req, res, next) => {
     animalSize,
     animalVaccination,
     animalCastration,
-    animalDescription
+    animalDescription,
+    photos: urls,
+    user: req.session.passport.user
   })
     .then(animal => {
       console.log('This is the single');
