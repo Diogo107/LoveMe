@@ -8,22 +8,52 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-      {{#if user}}
-        <!-- <a href="/">{{user.name}}'s Profile</a> -->
-        <a href="/authentication/profile">{{user.name}}'s</a>
-        <a href="/animal/register-animal">Register Animal</a>
-        <a href="/animal/search-list">Search</a>
-        <form action="/authentication/sign-out" method="POST">
+    <nav class="d-flex justify-content-end align-items-center">
+      <ul class="nav p-4">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/authentication/profile">{{user.name}}'s</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/animal/register-animal">Register Animal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/animal/search-list">Search</a>
+        </li>
+        <li class="nav-item">
+          <form action="/authentication/sign-out" method="POST" class="nav-link">
           <button>Sign Out</button>
         </form>
+        </li>
         {{else}}
-        <a href="/authentication/sign-in">Sign In</a>
-        <a href="/authentication/sign-up">Sign Up</a>
+        <li class="nav-item">
+          <a class="nav-link" href="/authentication/sign-in">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/authentication/sign-up">Sign Up</a>
+        </li>
       {{/if}}
+    </ul>
     </nav>
     {{{body}}}
     <script src="/scripts/script.js"></script>
   </body>
 </html>
+{{!-- 
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul> --}}

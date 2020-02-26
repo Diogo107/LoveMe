@@ -52,11 +52,14 @@ router.post('/single-animal/:animalId', (req, res, next) => {
       return transporter.sendMail({
         from: `Jan20 Test <${EMAIL}>`,
         to: userEmail,
-        subject: 'A test 😜 email',
+        subject: 'Someone is asking for your pets',
         // text: 'Hello world!'
-        html: `Hello <strong>world</strong> ${body.message}`
+        html: `${body.message}`
       });
     })
+    /* .then(() => {
+      res.render(`/animal/single-animal/${animalId}`);
+    }) */
     .catch(error => next(error));
 });
 

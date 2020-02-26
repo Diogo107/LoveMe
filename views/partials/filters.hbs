@@ -1,9 +1,9 @@
 <form action="/animal/search-filter" method="POST">
   <label for="name">Name</label>
-  <input type="text" name='name' placeholder="Animal's Name">
+  <input type="text" name='name' placeholder="Animal's Name" class="input-name">
 
   <label for="breed">Breed</label>
-  <select name="breed" id="breed" placeholder="Animal's Name">
+  <select name="breed" id="breed" placeholder="Animal's Name" class="select-css">
     <option value="" selected>Choose...</option>
     <option value="">----- Gatos -----</option>
     <option value="Europeu">Europeu</option>
@@ -18,7 +18,7 @@
   </select>
 
   <label for="animalAge">Age</label>
-  <select name="animalAge" id="animalAge">
+  <select name="animalAge" id="animalAge" class="select-css">
     <option value="" selected>Choose...</option>
     <option value="lessThenOne">- 1 year</option>
     <option value="betweenOneandFive">1 to 5 Years</option>
@@ -26,14 +26,14 @@
   </select>
 
   <label for="animalGender">Animal Gender</label>
-  <select name="animalGender" id="animalGender">
+  <select name="animalGender" id="animalGender" class="select-css">
     <option value="" selected>Choose...</option>
     <option value="male">Male</option>
     <option value="female">Female</option>
   </select>
 
   <label for="animalSize">Animal Size</label>
-  <select name="animalSize" id="animalSize">
+  <select name="animalSize" id="animalSize" class="select-css">
     <option value="" selected>Choose...</option>
     <option value="small">Small</option>
     <option value="medium">Medium</option>
@@ -42,14 +42,14 @@
   </select>
 
   <label for="animalVaccination">Animal Vaccination</label>
-  <select name="animalVaccination" id="animalVaccination">
+  <select name="animalVaccination" id="animalVaccination" class="select-css">
     <option value="" selected>Choose...</option>
     <option value="yes">Yes</option>
     <option value="no">No</option>
   </select>
 
-    <label for="animalCastration">Animal Castration</label>
-  <select name="animalCastration" id="animalCastration">
+  <label for="animalCastration">Animal Castration</label>
+  <select name="animalCastration" id="animalCastration" class="select-css">
     <option value="" selected>Choose...</option>
     <option value="yes">Yes</option>
     <option value="no">No</option>
@@ -58,6 +58,6 @@
 {{!--   <label for="animal-picture">Animal Picture</label>
   <input type="file" accept="images/*" id="animal-picture" alt="Animal Image"> --}}
 
-  <button type="submit">Search</button>
+  <button type="submit" class="myButton">Search</button>
 
 </form>

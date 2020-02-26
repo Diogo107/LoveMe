@@ -1,13 +1,48 @@
-<h1>profile</h1>
-<p>This page should only be accessible to authenticated users.</p>
-<figure><img src="{{user.picture}}" alt="" class="img-thumbnail rounded"></figure>
-<span><strong>Name</strong>: {{user.name}}</span>
-<br />
-<span><strong>Email</strong>: {{user.email}}</span>
-<br />
-<span><strong>Address</strong>: {{user.address}}</span>
-<br />
-<a href="/authentication/edit">Edit Profile </a>
+
+
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-5">
+    <div class="col-8  d-flex align-items-center">
+      <figure><img src="{{user.picture}}" alt="" class="img-thumbnail rounded"></figure>
+    </div>
+    <div class="col-4">
+      <span><strong>Name</strong>: {{user.name}}</span>
+      <br />
+      <span><strong>Email</strong>: {{user.email}}</span>
+      <br />
+      <span><strong>Address</strong>: {{user.address}}</span>
+      <br />
+     <a href="/authentication/edit">Edit Profile </a>
  <form action="/authentication/profile/delete" method="POST">
         <button>Delete Profile</button>
-</form>
+    </div>
+  </div>
+  <div class="col-6">
+
+    <div class="row">
+     
+
+{{#each animal}} 
+  <div class="card col-md-3 m-4 p-0">
+  <a href="/animal/single-animal/{{_id}}">
+  <div>
+    <img src="{{photos}}" alt="{{name}}'s Photos'">
+  </div>
+  <div class="d-flex justify-content-center">
+    <h3>{{name}}</h3>
+  </div>
+  
+</div>
+  </a>
+  {{/each}}
+
+
+    </div>
+
+    
+</div>
+
+
+
+
