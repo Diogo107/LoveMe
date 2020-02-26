@@ -293,7 +293,8 @@ figure {
 
 .col-6 {
   font-size: 1.5em;
-  border-radius: 15px; }
+  border-radius: 15px;
+  max-width: 65%; }
 
 .col-3 img {
   border-radius: 15px; }
@@ -593,7 +594,10 @@ body {
     padding: 2%; } }
 
 .logo {
-  width: 1em; }
+  width: 1em;
+  transition: transform 0.2s; }
+  .logo :hover {
+    transform: scale(1.2); }
   .logo img {
     width: 100px; }
 
