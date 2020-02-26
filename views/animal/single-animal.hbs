@@ -7,7 +7,7 @@
           <img src="{{animal.photos}}" alt="{{animal.name}}'s Photo" class="img-fluid">
       </figure>
     </div>
-    <div class="col-6">
+    <div class="col-6 background" class="single-text">
       <span><strong>Name</strong>: {{animal.name}}</span>
       <br />
       <span><strong>Specie</strong>: {{animal.specie}}</span>
@@ -24,12 +24,12 @@
       <br />
       <span><strong>Castration</strong>: {{animal.animalCastration}}</span>
       <br />
-      <span><strong>Description</strong>: {{animal.animalDescription}}</span>
+      <span><strong>Description</strong>:<br /> {{animal.animalDescription}}</span>
       <br />
     </div>
     <div class="col-3">
-      <h3>Contact Form</h3>
-      <form action="/animal/single-animal/{{animal._id}}" method="POST">
+      <form action="/animal/single-animal/{{animal._id}}" method="POST" class="form-style-5">
+      <h5><strong>Contact Form</strong></h5>
         <label for="email">Your Email</label>
         <input type="text" placeholder="Enter your email here...">
         

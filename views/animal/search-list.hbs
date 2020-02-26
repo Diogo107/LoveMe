@@ -1,20 +1,20 @@
 
 <section class="row">
 
-<aside class="col-2 m-4" style="background-color:orange;">
+<aside class="col-2 m-4" style="background-color:#6BC6FF;">
   {{!-- Aqui vai ter os filtros --}}
-  <h3>Filter</h3>
+ 
   {{> filters}}
 </aside>
 <div class="col-9 row">
   {{!-- Aqui vai ter os cards --}}
   {{#each animal}} 
-  <div class="card col-md-3 m-4 p-0">
+  <div class="card col-2 m-4 p-0">
   <a href="/animal/single-animal/{{_id}}">
   <div>
-    <img src="{{photos}}" alt="{{name}}'s Photos'">
+    <img src="{{photos}}" alt="{{name}}'s Photo'">
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center align-items-center">
     <h3>{{name}}</h3>
   </div>
   
