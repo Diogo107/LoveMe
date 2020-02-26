@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+.nav-link {
+  padding: 0;
+}
+
 nav {
   display: flex;
   height: 10vh;
@@ -32,6 +36,14 @@ nav {
   font-size: 1.5em;
   font-weight: 700;
   padding-right: 1em;
+  ul {
+    display: flex;
+    list-style: none;
+    width: 100%;
+  }
+  form button {
+    padding-bottom: 0;
+  }
   a,
   button {
     padding: 1em 0;

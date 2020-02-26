@@ -22,7 +22,7 @@ router.get('/sign-in', (req, res, next) => {
   res.render('sign-in');
 });
 
-router.get('/profile', (req, res, next) => {
+router.get('/profile', routeGuard, (req, res, next) => {
   console.log(req.user._id);
   let userId = req.user._id;
   Animal.find({ user: `${userId}` }).then(animal => {
@@ -38,7 +38,7 @@ router.post(
   })
 );
 
-router.post('/sign-out', (req, res, next) => {
+router.post('/sign-out', routeGuard, (req, res, next) => {
   req.logout();
   res.redirect('/');
 });

@@ -37,7 +37,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-router.post('/single-animal/:animalId', (req, res, next) => {
+router.post('/single-animal/:animalId', routeGuard, (req, res, next) => {
   console.log(nodemailer);
   const animalId = req.params.animalId;
   let userEmail;
@@ -57,21 +57,17 @@ router.post('/single-animal/:animalId', (req, res, next) => {
         html: `${body.message}`
       });
     })
-    /* .then(() => {
-      res.render(`/animal/single-animal/${animalId}`);
-    }) */
+
     .catch(error => next(error));
 });
 
 router.post('/search-filter', (req, res, next) => {
   //const { body } = req;
   const body = req.body;
-  console.log(body);
   //understand which filters to apply (the first was Santi method)
   for (let key in body) {
     body[key].length > 0 ? '' : delete body[key];
   }
-  console.log(body);
   /* for (let key in body) {
     if (body[key].length == 0) {
       delete body[key];
@@ -84,11 +80,11 @@ router.post('/search-filter', (req, res, next) => {
   });
 });
 
-router.get('/register-animal', (req, res, next) => {
+router.get('/register-animal', routeGuard, (req, res, next) => {
   res.render('animal/register-animal');
 });
 
-router.post('/single-animal', uploader.array('photos', 10), (req, res, next) => {
+router.post('/single-animal', uploader.array('photos', 10), routeGuard, (req, res, next) => {
   console.log('i am adding an animal', req.body);
   console.log(req.session.passport.user);
   const urls = req.files.map(file => {
