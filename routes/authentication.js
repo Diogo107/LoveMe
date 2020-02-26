@@ -1,9 +1,8 @@
 'use strict';
 
 const { Router } = require('express');
-
 const passport = require('passport');
-
+const Animal = require('./../models/animal');
 const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 const uploader = require('./../middleware/upload-files');
@@ -26,7 +25,11 @@ router.get('/sign-in', (req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-  res.render('authentication/profile');
+  console.log(req.user._id);
+  let userId = req.user._id;
+  Animal.find({ user: `${userId}` }).then(animal => {
+    res.render('authentication/profile', { animal });
+  });
 });
 
 //edit

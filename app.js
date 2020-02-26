@@ -18,6 +18,7 @@ const authenticationRouter = require('./routes/authentication');
 const animalRouter = require('./routes/animal');
 const hbs = require('hbs');
 const app = express();
+const nodemailer = require('./middleware/nodemailer');
 
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');

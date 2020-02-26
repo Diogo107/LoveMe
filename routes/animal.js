@@ -6,6 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const Animal = require('./../models/animal');
 const router = new Router();
 const uploader = require('./../middleware/upload-files');
+//const nodemailer = require('./../middleware/nodemailer');
 
 router.get('/search-list', (req, res, next) => {
   Animal.find().then(animal => {
@@ -14,9 +15,70 @@ router.get('/search-list', (req, res, next) => {
   });
 });
 
-router.post('/search-animal', (req, res, next) => {
-  const body = req;
-  console.log(body.body);
+router.get('/search-list/:animal', (req, res, next) => {
+  const search = req.params.animal;
+  console.log(req.params.search);
+  Animal.find({ specie: `${search}` }).then(animal => {
+    console.log('This is to the cards', { animal });
+    res.render('animal/search-list', { animal });
+  });
+});
+
+const nodemailer = require('nodemailer');
+
+const EMAIL = 'ih174test@gmail.com';
+const PASSWORD = 'IH174@lis';
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: EMAIL,
+    pass: PASSWORD
+  }
+});
+
+router.post('/single-animal/:animalId', (req, res, next) => {
+  console.log(nodemailer);
+  const animalId = req.params.animalId;
+  let userEmail;
+  const { body } = req;
+  Animal.findById(animalId)
+    .populate('user')
+    .then(animalWithUser => {
+      //console.log('this is the animal information', animal.user);
+      userEmail = animalWithUser.user.email;
+    })
+    .then(() => {
+      return transporter.sendMail({
+        from: `Jan20 Test <${EMAIL}>`,
+        to: userEmail,
+        subject: 'A test 😜 email',
+        // text: 'Hello world!'
+        html: `Hello <strong>world</strong> ${body.message}`
+      });
+    })
+    .catch(error => next(error));
+});
+
+router.post('/search-filter', (req, res, next) => {
+  //const { body } = req;
+  const body = req.body;
+  console.log(body);
+  //understand which filters to apply (the first was Santi method)
+  for (let key in body) {
+    body[key].length > 0 ? '' : delete body[key];
+  }
+  console.log(body);
+  /* for (let key in body) {
+    if (body[key].length == 0) {
+      delete body[key];
+    }
+  } */
+  //
+  Animal.find(body).then(animal => {
+    //console.log('I got to here', animal);
+    res.render('animal/search-list', { animal });
+  });
 });
 
 router.get('/register-animal', (req, res, next) => {

@@ -3,8 +3,13 @@
 </div>
 
 <div  class="home-button d-flex justify-content-center align-items-center">
-<button onclick="location.href='/animal/search-list'">Looking for a cat...</button>
-<button onclick="location.href='/animal/search-list'">Looking for a dog...</button>
+  <select name="forma" onchange="location = this.value;">
+    <option value="">I'm searching for a...</option>
+    <option value="/animal/search-list/cat">Cat</option>
+    <option value="/animal/search-list/dog">Dog</option>
+</select>
+{{!-- <button onclick="location.href='/animal/search-list'">Looking for a cat...</button>
+<button onclick="location.href='/animal/search-list'">Looking for a dog...</button> --}}
 </div>
   
 {{!-- <select name="type-of-animal" id="type-of-animal">
