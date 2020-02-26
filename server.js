@@ -10,7 +10,10 @@ const PORT = parseInt(process.env.PORT, 10);
 const URI = process.env.MONGODB_URI;
 
 const terminate = error => {
-  if (error) debug(error);
+  if (error) {
+    //console.log(error);
+    debug(error);
+  }
   const exitCode = error && error instanceof Error ? 1 : 0;
   debug('Terminating node app.');
   mongoose.disconnect().finally(() => {
@@ -26,6 +29,7 @@ process.on('uncaughtException', error => {
   terminate(error);
 });
 process.on('unhandledRejection', error => {
+  //console.log(error);
   debug('There was an unhandled promise rejection.');
   terminate(error);
 });
@@ -37,6 +41,7 @@ const onError = error => {
     process.exit(1);
   } else {
     console.error('There was an unknown error.');
+    //console.log(error);
     debug(error);
     throw error;
   }
@@ -53,7 +58,10 @@ const initiate = () => {
   app.set('port', PORT);
 
   const server = app.listen(PORT);
-  server.on('error', error => onError(error));
+  server.on('error', error => {
+    //console.log(error);
+    onError(error);
+  });
   server.on('listening', () => onListening(server));
 };
 

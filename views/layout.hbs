@@ -8,52 +8,49 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <nav class="">
-      <ul class="p-4 d-flex justify-content-end align-items-center">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        {{#if user}}
-        <li class="nav-item">
-          <a class="nav-link" href="/authentication/profile">{{user.name}}'s</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/animal/register-animal">Register Animal</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/animal/search-list">Search</a>
-        </li>
-        <li class="nav-item">
-          <form action="/authentication/sign-out" method="POST">
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="/images/pata.png" alt="" class="nav-icon"></a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                  {{#if user}}
+                    <li><a href="/authentication/profile">{{user.name}}'s</a></li>
+                    <li><a href="/animal/register-animal">Register Animal</a></li>
+                    <li><a href="/animal/search-list">Search</a></li>
+                    <li><form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
-        </form>
-        </li>
-        {{else}}
-        <li class="nav-item">
-          <a class="nav-link" href="/authentication/sign-in">Sign In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/authentication/sign-up">Sign Up</a>
-        </li>
-      {{/if}}
-    </ul>
+        </form></li>
+                    {{else}}
+                      <li class="nav-item">
+                        <a class="nav-link" href="/authentication/sign-in">Sign In</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/authentication/sign-up">Sign Up</a>
+                      </li>
+                    {{/if}}
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
     </nav>
+    <div>
+  <img src="/images/background-all.jpg" class="home-image" alt="background">
+</div>
     {{{body}}}
     <script src="/scripts/script.js"></script>
+    <script>$('.navTrigger').click(function () {
+    $(this).toggleClass('active');
+    console.log("Clicked menu");
+    $("#mainListDiv").toggleClass("show_list");
+    $("#mainListDiv").fadeIn();
+
+});
+</script>
   </body>
 </html>
-{{!-- 
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul> --}}

@@ -13,18 +13,17 @@ const schema = new mongoose.Schema(
       type: String,
       lowercase: true,
       required: true,
+      unique: true,
       trim: true
     },
     address: {
       type: String,
       trim: true
     },
-    picture: [
-      {
-        type: String,
-        default: 'https://cdn3.iconfinder.com/data/icons/shipping-and-delivery-2-1/512/54-512.png'
-      }
-    ],
+    picture: {
+      type: String,
+      default: 'https://cdn3.iconfinder.com/data/icons/shipping-and-delivery-2-1/512/54-512.png'
+    },
     passwordHash: {
       type: String,
       required: true

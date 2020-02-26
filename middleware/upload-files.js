@@ -1,6 +1,7 @@
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const multerStorageCloudinary = require('multer-storage-cloudinary');
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_API_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -10,7 +11,7 @@ cloudinary.config({
 const storage = multerStorageCloudinary({
   cloudinary,
   folder: 'loveme',
-  // resource_type: 'raw'
+  //resource_type: 'raw',
   allowedFormats: ['jpg', 'png', 'gif'],
   transformation: [{ width: 1024, crop: 'limit' }]
 });

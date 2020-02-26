@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsla(0, 0, 75%, 0.5);
 
@@ -17,7 +18,13 @@ body {
   font-family: $font-sans;
   line-height: 2;
   width: 100%;
-  background-color: lightgray;
+  nav {
+    form {
+      button {
+        border-width: 0px;
+      }
+    }
+  }
 }
 
 a {
@@ -25,14 +32,13 @@ a {
   text-decoration: none;
 }
 
-.nav-link {
+/* .nav-link {
   padding: 0;
-}
+} */
 
-nav {
+/* nav {
   display: flex;
   height: 10vh;
-  background-color: #3f9dff;
   font-size: 1.5em;
   font-weight: 700;
   padding-right: 1em;
@@ -58,7 +64,7 @@ nav {
       margin-right: auto;
     }
   }
-}
+} */
 
 h1,
 h2,
@@ -74,6 +80,13 @@ p {
 img {
   // width: 100%;
   // max-width: 100%;
+}
+
+.erase-button {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
 }
 
 form {
@@ -100,14 +113,22 @@ textarea {
 }
 
 .home-image {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
+  opacity: 0.5;
+}
+
+.home-image2 {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
 }
 
 .home-button {
-  height: 80vh;
+  height: 15vh;
   width: 300px;
   margin: auto;
   button {
@@ -204,9 +225,13 @@ label {
 .card {
   border-radius: 15px;
   height: 18em;
-  background-color: #75cfff;
-
-  img {
+  background-color: #e47501;
+  flex: 0 0 33.333333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .mainImg {
     width: 100%;
     height: 14em;
     border-radius: 15px 15px 0 0;
@@ -316,4 +341,452 @@ figure {
 
 .background {
   background-color: white;
+  padding: 2em 5em;
+}
+
+.background2 {
+  background-color: white;
+  padding: 2em 1em;
+}
+
+// Nav bar starts here
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 62.5%;
+  font-size: 10px;
+}
+/*-- Inspiration taken from abdo steif -->
+/* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+
+/* Navbar section */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 62.5%;
+  font-size: 10px;
+}
+/*-- Inspiration taken from abdo steif -->
+/* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+
+/* Navbar section */
+
+.nav {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  line-height: 65px;
+  text-align: center;
+  z-index: 2;
+  background-color: black;
+  form {
+    color: white;
+    font-size: 15px;
+  }
+}
+
+.nav div.logo {
+  float: left;
+  width: auto;
+  height: auto;
+  padding-left: 3rem;
+}
+
+.nav div.logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.nav div.logo a:hover {
+  color: #00e676;
+}
+
+.nav div.main_list {
+  height: 65px;
+  float: right;
+}
+
+.nav div.main_list ul {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav div.main_list ul li {
+  width: auto;
+  height: 65px;
+  padding: 0;
+  padding-right: 3rem;
+}
+
+.nav div.main_list ul li a {
+  text-decoration: none;
+  color: #fff;
+  line-height: 65px;
+  font-size: 2.4rem;
+}
+
+.nav div.main_list ul li a:hover {
+  color: #00e676;
+}
+
+/* Home section */
+
+.home {
+  width: 100%;
+  height: 100vh;
+}
+
+.navTrigger {
+  display: none;
+}
+
+.nav {
+  padding-top: 20px;
+
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+/* Media qurey section */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    margin: 0;
+    background-color: black;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navTrigger {
+    display: block;
+  }
+  .nav div.logo {
+    margin-left: 15px;
+  }
+  .nav div.main_list {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+  .nav div.show_list {
+    height: auto;
+    display: none;
+  }
+  .nav div.main_list ul {
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #111;
+    /*same background color of navbar*/
+    background-position: center top;
+  }
+  .nav div.main_list ul li {
+    width: 100%;
+    text-align: right;
+  }
+  .nav div.main_list ul li a {
+    text-align: center;
+    width: 100%;
+    font-size: 3rem;
+    padding: 20px;
+  }
+  .nav div.media_button {
+    display: block;
+  }
+}
+
+/* Animation */
+/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+.navTrigger {
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  margin: auto;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  bottom: 0;
+}
+
+.navTrigger i {
+  background-color: #fff;
+  border-radius: 2px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+  -webkit-animation: outT 0.8s backwards;
+  animation: outT 0.8s backwards;
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+  margin: 5px 0;
+  -webkit-animation: outM 0.8s backwards;
+  animation: outM 0.8s backwards;
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+  -webkit-animation: outBtm 0.8s backwards;
+  animation: outBtm 0.8s backwards;
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+  -webkit-animation: inT 0.8s forwards;
+  animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+  -webkit-animation: inM 0.8s forwards;
+  animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+  -webkit-animation: inBtm 0.8s forwards;
+  animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+  50% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+@keyframes inM {
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@-webkit-keyframes outM {
+  50% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+@keyframes outM {
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@-webkit-keyframes inT {
+  0% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(9px) rotate(135deg);
+  }
+}
+
+@keyframes inT {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(9px) rotate(135deg);
+  }
+}
+
+@-webkit-keyframes outT {
+  0% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(9px) rotate(135deg);
+  }
+}
+
+@keyframes outT {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(9px) rotate(135deg);
+  }
+}
+
+@-webkit-keyframes inBtm {
+  0% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(-9px) rotate(135deg);
+  }
+}
+
+@keyframes inBtm {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-9px) rotate(135deg);
+  }
+}
+
+@-webkit-keyframes outBtm {
+  0% {
+    -webkit-transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translateY(-9px) rotate(135deg);
+  }
+}
+
+@keyframes outBtm {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-9px) rotate(135deg);
+  }
+}
+
+.affix {
+  padding: 0;
+  background-color: #111;
+}
+
+.myH2 {
+  text-align: center;
+  font-size: 4rem;
+}
+.myP {
+  text-align: justify;
+  padding-left: 15%;
+  padding-right: 15%;
+  font-size: 20px;
+}
+@media all and (max-width: 700px) {
+  .myP {
+    padding: 2%;
+  }
+}
+
+// Nav bar ends here
+
+.logo {
+  width: 1em;
+  img {
+    width: 130px;
+  }
+}
+
+.nav-padding {
+  padding-top: 12em;
+  padding-left: 8em;
+  z-index: -1;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  transition: 0.3s;
+  width: 40%;
+  margin-right: 25px;
+  margin-top: 0px;
+  flex: 0 0 33.333333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container2 {
+  padding: 2px 16px;
+}
+.align-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .background2 {
+    width: 450px;
+  }
+}
+
+.home-text {
+  font-size: 20em;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline;
+  color: #984c00;
+}
+
+.home-text2 {
+  font-size: 20em;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline;
+  color: #e0790a;
+}
+
+#center {
+  display: flex;
+  justify-content: center;
 }

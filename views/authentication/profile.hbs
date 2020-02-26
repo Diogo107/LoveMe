@@ -1,12 +1,13 @@
+<section class="nav-padding">
 
 
 <div class="row">
   <div class="col-1"></div>
-  <div class="col-4">
+  <div class="col-4 align-profile">
     <div class="col-8  d-flex align-items-center">
       <figure><img src="{{user.picture}}" alt="" class="img-thumbnail rounded"></figure>
     </div>
-    <div class="col-4">
+    <div class="col-6 background2">
       <span><strong>Name</strong>: {{user.name}}</span>
       <br />
       <span><strong>Email</strong>: {{user.email}}</span>
@@ -25,16 +26,21 @@
 
 {{#each animal}} 
   <div class="card col-md-3 m-4 p-0">
+  <div class="relative">
   <a href="/animal/single-animal/{{_id}}">
-  <div>
-    <img src="{{photos}}" alt="{{name}}'s Photos'">
+    <img class="mainImg" src="{{photos}}" alt="{{name}}'s Photos'">
+  </a>
+  <a href="/authentication/profile/delete/{{_id}}">
+    <img src="/images/erase-button.png" alt="erase" class="erase-button">
+  </a>
   </div>
+  <a href="/animal/single-animal/{{_id}}">
   <div class="d-flex justify-content-center">
     <h3>{{name}}</h3>
   </div>
+  </a>
   
 </div>
-  </a>
   {{/each}}
 
 
@@ -46,3 +52,5 @@
 
 
 
+
+</section>

@@ -32,6 +32,17 @@ router.get('/profile', routeGuard, (req, res, next) => {
   });
 });
 
+router.get('/profile/delete/:deleteAnimal', routeGuard, (req, res, next) => {
+  let deleteAnimal = req.params.deleteAnimal;
+  let userId = req.user._id;
+  Animal.findByIdAndDelete(deleteAnimal).then(() => {
+    Animal.find({ user: `${userId}` }).then(animal => {
+      console.log('Im here!');
+      res.render('authentication/profile', { animal });
+    });
+  });
+});
+
 //edit
 
 router.get('/edit', (req, res, next) => {
@@ -71,9 +82,14 @@ router.post(
 
 router.post('/profile/delete', routeGuard, (req, res, next) => {
   console.log(req);
+  let animalsToDelete = [];
   const delUser = req.user.id;
   User.findByIdAndDelete(delUser)
-    .then(() => {
+    .then(deletedUser => {
+      return Animal.deleteMany({ user: delUser });
+    })
+    .then(deletedAnimals => {
+      req.logout();
       res.redirect('/');
     })
     .catch(error => {
