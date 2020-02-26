@@ -57,8 +57,16 @@ router.post('/single-animal/:animalId', routeGuard, (req, res, next) => {
         html: `${body.message}`
       });
     })
-
-    .catch(error => next(error));
+    .then(() => {
+      console.log('this is 1st');
+      Animal.findById(animalId)
+        .then(animal => {
+          console.log(animal);
+          console.log('this is 2nd');
+          res.redirect(`/animal/single-animal/${animalId}`);
+        })
+        .catch(error => next(error));
+    });
 });
 
 router.post('/search-filter', (req, res, next) => {
