@@ -9,22 +9,8 @@
 </aside>
 <div class="col-10 row mainanimal">
   {{!-- Aqui vai ter os cards --}}
-  {{#each animal}} 
-   <div class="card col-2">
-  <div class="relative">
-  <a href="/animal/single-animal/{{_id}}">
-    <img class="mainImg" src="{{photos}}" alt="{{name}}'s Photos'">
-  </a>
-  
-  </div>
-  <a href="/animal/single-animal/{{_id}}">
-  <div class="d-flex justify-content-center">
-    <h3><strong>{{name}}</strong></h3>
-  </div>
-  </a>
-  
-</div>
-  {{/each}}
+  {{> cards}}
+
 </div>
 {{!-- </section> --}}
 </section>

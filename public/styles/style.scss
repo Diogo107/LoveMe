@@ -821,3 +821,84 @@ body {
   padding: 0;
   margin: 0;
 }
+
+// Cards done
+
+.cardcontainer {
+  width: 200px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  margin: 1.5em;
+  padding: 0.5em;
+  transition: all 0.2s ease-in-out;
+  :hover {
+    transform: scale(1.01);
+  }
+}
+
+.cardimg {
+  z-index: -1;
+}
+
+.cardcontent {
+  height: 28%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cardcontent {
+  font-size: 0.8em;
+}
+.cardfooter {
+  height: 12%;
+  background: rgb(235, 235, 235);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardbutton {
+  background: lightgreen;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(150px, 128px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease-in;
+}
+.cardbutton i {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.cardbutton:hover {
+  background: cyan;
+}
+.cardfooter h3 {
+  font-size: 1.5em;
+}
+
+.cardcontent p:nth-child(1) {
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+.cardcontent h3 {
+  font-size: 1.8em;
+  font-weight: 900;
+  text-align: center;
+}
+.cardcontent p:nth-child(2) {
+  font-size: 0.9em;
+}

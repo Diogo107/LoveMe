@@ -24,24 +24,7 @@
     <div class="row">
      
 
-{{#each animal}} 
-  <div class="card col-md-3 m-4 p-0">
-  <div class="relative">
-  <a href="/animal/single-animal/{{_id}}">
-    <img class="mainImg" src="{{photos}}" alt="{{name}}'s Photos'">
-  </a>
-  <a href="/authentication/profile/delete/{{_id}}">
-    <img src="/images/erase-button.png" alt="erase" class="erase-button">
-  </a>
-  </div>
-  <a href="/animal/single-animal/{{_id}}">
-  <div class="d-flex justify-content-center">
-    <h3>{{name}}</h3>
-  </div>
-  </a>
-  
-</div>
-  {{/each}}
+{{>cards}}
 
 
     </div>
