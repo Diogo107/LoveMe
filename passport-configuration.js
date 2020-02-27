@@ -44,9 +44,11 @@ passport.use(
       const address = req.body.address;
       let userEmail;
       let thisIsTheUser;
+      console.log('im here! Im about to run decript');
       bcryptjs
         .hash(password, 10)
         .then(hash => {
+          console.log('im here! this is the hash', hash);
           return User.create({
             name,
             email,
