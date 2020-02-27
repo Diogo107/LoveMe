@@ -667,7 +667,7 @@ body {
 
 .cardcontainer {
   width: 200px;
-  height: 250px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -680,7 +680,9 @@ body {
     transform: scale(1.01); }
 
 .cardimg {
-  z-index: -1; }
+  width: 212px;
+  height: 212px;
+  object-fit: cover; }
 
 .cardcontent {
   height: 28%;
@@ -726,7 +728,7 @@ body {
 
 .cardcontent p:nth-child(1) {
   font-size: 1.8em;
-  margin-bottom: 5px; }
+  margin-bottom: 0px; }
 
 .cardcontent h3 {
   font-size: 1.8em;
