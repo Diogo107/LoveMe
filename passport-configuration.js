@@ -60,7 +60,8 @@ passport.use(
           return transporter
             .sendMail({
               from: `Jan20 Test <${user.email}>`,
-              to: 'diogo.filipe.santos107@gmail.com',
+              to: `${user.email}`,
+              //to: 'diogo.filipe.santos107@gmail.com',
               subject: 'Email Confirmation',
               // text: 'Hello world!'
               html: `Click the link to confirm your Email. https://ih-diogo-seat13.herokuapp.com/confirm-email/${user._id}`
