@@ -64,9 +64,10 @@ passport.use(
               //to: 'diogo.filipe.santos107@gmail.com',
               subject: 'Email Confirmation',
               // text: 'Hello world!'
-              html: `Click the link to confirm your Email. https://ih-diogo-seat13.herokuapp.com/confirm-email/${user._id}`
+              html: `Click the link to confirm your Email. ${process.env.WORKING_URL}/confirm-email/${user._id}`
             })
-            .then(() => {
+            .then(mail => {
+              console.log(mail);
               console.log('Sent the email', thisIsTheUser);
               callback(null, user);
             });
