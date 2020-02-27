@@ -66,9 +66,8 @@ passport.use(
               html: `Click the link to confirm your Email. https://ih-diogo-seat13.herokuapp.com/confirm-email/${user._id}`
             })
             .then(() => {
-              console.log('Inside the transporter', thisIsTheUser);
-
-              callback(null, req.logout());
+              console.log('Sent the email', thisIsTheUser);
+              callback(null, user);
             });
         })
 
