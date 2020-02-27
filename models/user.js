@@ -22,7 +22,7 @@ const schema = new mongoose.Schema(
     },
     picture: {
       type: String,
-      default: 'https://cdn3.iconfinder.com/data/icons/shipping-and-delivery-2-1/512/54-512.png'
+      default: 'https://ya-webdesign.com/images/avatar-png-1.png'
     },
     passwordHash: {
       type: String,

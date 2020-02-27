@@ -1,16 +1,16 @@
-<section class="nav-padding">
+<section class="nav-padding row">
 
 {{!-- <section class="row"> --}}
 
-<aside class="col-2 m-4" style="background-color:black" position="stiky">
+<aside class="col-2" position="stiky">
   {{!-- Aqui vai ter os filtros --}}
  
   {{> filters}}
 </aside>
-<div class="col-9 row">
+<div class="col-10 row mainanimal">
   {{!-- Aqui vai ter os cards --}}
   {{#each animal}} 
-   <div class="card col-2 p-0">
+   <div class="card col-2">
   <div class="relative">
   <a href="/animal/single-animal/{{_id}}">
     <img class="mainImg" src="{{photos}}" alt="{{name}}'s Photos'">

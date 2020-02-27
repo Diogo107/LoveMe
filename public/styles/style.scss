@@ -87,6 +87,11 @@ img {
   right: 0;
   width: 30px;
   height: 30px;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+  :hover {
+    transform: scale(1.5);
+  }
 }
 
 form {
@@ -260,7 +265,16 @@ h1 {
 }
 
 aside {
-  /* margin-left: 55px; */
+  background-color: black;
+  position: fixed !important;
+  top: 124px;
+  left: 20px;
+}
+
+.mainanimal {
+  right: -40px;
+  position: absolute;
+  top: 108px;
 }
 
 figure {
@@ -757,8 +771,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
   transition: 0.3s;
   width: 40%;
-  margin-right: 25px;
-  margin-top: 0px;
+  margin: 15px;
   flex: 0 0 33.333333%;
   display: flex;
   flex-direction: column;

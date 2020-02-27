@@ -49,18 +49,16 @@ router.get('/edit', (req, res, next) => {
   res.render('authentication/edit');
 });
 
-router.post('/edit', uploader.array('picture', 10), (req, res, next) => {
-  const urls = req.files.map(file => {
-    return file.url;
-  });
-  console.log(urls);
+router.post('/edit', uploader.single('picture'), (req, res, next) => {
+  const url = req.file.url;
+  console.log(req.file);
   const userId = req.user._id;
   const { name, email, address, picture } = req.body;
   User.findByIdAndUpdate(userId, {
     name,
     email,
     address,
-    picture: urls
+    picture: url
   })
     .then(() => {
       res.redirect('/authentication/profile');
