@@ -5,7 +5,7 @@
   <input type="text" name='name' required placeholder="Animal's Name">
   
   <label for="input-photos">Photos</label>
-  <input type="file" name="photos" id="input-photos" accept="image/*" multiple />
+  <input type="file" required name="photos" id="input-photos" accept="image/*" multiple />
 
   <label for="specie">Animal Specie</label>
   <select name="specie" id="specie">
@@ -15,7 +15,7 @@
 
   <label for="breed">Breed</label>
   <select name="breed" id="breed" placeholder="Animal's Name">
-    <option value="" selected>Choose...</option>
+    <option value="Undefined" selected>Choose...</option>
     <option value="">----- Cats -----</option>
     <option value="Abyssinian">Abyssinian</option>
     <option value="Aegean">Aegean</option>
@@ -594,14 +594,16 @@
 
   <label for="animalVaccination">Animal Vaccination</label>
   <select name="animalVaccination" id="animalVaccination">
-    <option value="yes">Yes</option>
-    <option value="no">No</option>
+    <option value=false selected>Choose...</option>
+    <option value=true>Yes</option>
+    <option value=false>No</option>
   </select>
 
     <label for="animalCastration">Animal Castration</label>
   <select name="animalCastration" id="animalCastration">
-    <option value="yes">Yes</option>
-    <option value="no">No</option>
+    <option value=false selected>Choose...</option>
+    <option value=true>Yes</option>
+    <option value=false>No</option>
   </select>
 
   <label for="animalDescription">Animal Description</label>

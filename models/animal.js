@@ -17,6 +17,7 @@ const schema = new mongoose.Schema(
     breed: {
       type: String,
       enum: [
+        'Undefined',
         'Abyssinian',
         'Aegean',
         'American Curl',
@@ -586,14 +587,10 @@ const schema = new mongoose.Schema(
       default: 'Undefined'
     },
     animalVaccination: {
-      type: String,
-      emun: ['yes', 'no', 'Undefined'],
-      default: 'Undefined'
+      type: Boolean
     },
     animalCastration: {
-      type: String,
-      enum: ['yes', 'no', 'Undefined'],
-      default: 'Undefined'
+      type: Boolean
     },
     photos: [
       {

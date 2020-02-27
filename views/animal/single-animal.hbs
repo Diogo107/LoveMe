@@ -22,9 +22,17 @@
       <br />
       <span><strong>Size</strong>: {{animal.animalSize}}</span>
       <br />
-      <span><strong>Vaccination</strong>: {{animal.animalVaccination}}</span>
+      {{#if animal.animalVaccination}}
+      <span><strong>Vaccination</strong>: Yes</span>
+      {{else}}
+      <span><strong>Vaccination</strong>: No</span>
+      {{/if}}
       <br />
-      <span><strong>Castration</strong>: {{animal.animalCastration}}</span>
+      {{#if animal.animalCastration}}
+      <span><strong>Castration</strong>: Yes</span>
+      {{else}}
+      <span><strong>Castration</strong>: No</span>
+      {{/if}}
       <br />
       <span><strong>Description</strong>:<br /> {{animal.animalDescription}}</span>
       <br />
@@ -33,7 +41,7 @@
       <form action="/animal/single-animal/{{animal._id}}" method="POST" class="form-style-5">
       <h5><strong>Contact Form</strong></h5>
         <label for="email">Your Email</label>
-        <input type="text" placeholder="Enter your email here...">
+        <input type="email" placeholder="Enter your email here...">
         
         <label for="message">Your Email</label>
         <textarea name="message" id="" cols="30" rows="5" placeholder="Enter your message here..."></textarea>
