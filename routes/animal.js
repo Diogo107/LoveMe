@@ -88,8 +88,12 @@ router.post('/search-filter', (req, res, next) => {
   });
 });
 
-router.get('/register-animal', routeGuard, (req, res, next) => {
-  res.render('animal/register-animal');
+router.get('/register-animal', (req, res, next) => {
+  if (req.user.validation) {
+    res.render('animal/register-animal');
+  } else {
+    res.render('authentication/confirm-email');
+  }
 });
 
 router.post('/single-animal', uploader.array('photos', 10), routeGuard, (req, res, next) => {

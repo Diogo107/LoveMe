@@ -24,6 +24,10 @@ const schema = new mongoose.Schema(
       type: String,
       default: 'https://ya-webdesign.com/images/avatar-png-1.png'
     },
+    validation: {
+      type: Boolean,
+      default: false
+    },
     passwordHash: {
       type: String,
       required: true

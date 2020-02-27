@@ -15,7 +15,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/authentication/profile',
+    successRedirect: '/authentication/confirm-email',
     failureRedirect: '/sign-up'
   })
 );
@@ -24,12 +24,16 @@ router.get('/sign-in', (req, res, next) => {
   res.render('sign-in');
 });
 
-router.get('/profile', routeGuard, (req, res, next) => {
-  console.log(req.user._id);
+router.get('/profile', (req, res, next) => {
+  console.log(req.user);
   let userId = req.user._id;
-  Animal.find({ user: `${userId}` }).then(animal => {
-    res.render('authentication/profile', { animal });
-  });
+  if (req.user.validation) {
+    Animal.find({ user: `${userId}` }).then(animal => {
+      res.render('authentication/profile', { animal });
+    });
+  } else {
+    res.render('authentication/confirm-email');
+  }
 });
 
 router.get('/profile/delete/:deleteAnimal', routeGuard, (req, res, next) => {

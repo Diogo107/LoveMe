@@ -5,6 +5,18 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('./models/user');
 const bcryptjs = require('bcryptjs');
+const nodemailer = require('nodemailer');
+
+const EMAIL = 'ih174test@gmail.com';
+const PASSWORD = 'IH174@lis';
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: EMAIL,
+    pass: PASSWORD
+  }
+});
 
 passport.serializeUser((user, callback) => {
   callback(null, user._id);
@@ -30,6 +42,8 @@ passport.use(
     (req, email, password, callback) => {
       const name = req.body.name;
       const address = req.body.address;
+      let userEmail;
+      let thisIsTheUser;
       bcryptjs
         .hash(password, 10)
         .then(hash => {
@@ -41,8 +55,23 @@ passport.use(
           });
         })
         .then(user => {
-          callback(null, user);
+          console.log('This is the user passport', user);
+          thisIsTheUser = user;
+          return transporter
+            .sendMail({
+              from: `Jan20 Test <${user.email}>`,
+              to: 'diogo.filipe.santos107@gmail.com',
+              subject: 'Email Confirmation',
+              // text: 'Hello world!'
+              html: `Click the link to confirm your Email. https://ih-diogo-seat13.herokuapp.com/confirm-email/${user._id}`
+            })
+            .then(() => {
+              console.log('Inside the transporter', thisIsTheUser);
+
+              callback(null, req.logout());
+            });
         })
+
         .catch(error => {
           callback(error);
         });
@@ -69,7 +98,7 @@ passport.use(
         }
       })
       .catch(error => {
-        callback(error);
+        callback(error, req.logout());
       });
   })
 );
