@@ -52,6 +52,7 @@ passport.use(
           return User.create({
             name,
             email,
+
             address,
             passwordHash: hash
           });

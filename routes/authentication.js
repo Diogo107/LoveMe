@@ -6,7 +6,18 @@ const Animal = require('./../models/animal');
 const routeGuard = require('./../middleware/route-guard');
 const User = require('./../models/user');
 const uploader = require('./../middleware/upload-files');
+const nodemailer = require('nodemailer');
 const router = new Router();
+const EMAIL = 'pick.me.today.adoption@gmail.com';
+const PASSWORD = 'adoption123';
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: EMAIL,
+    pass: PASSWORD
+  }
+});
 
 router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
@@ -15,7 +26,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/confirm-email',
+    successRedirect: '/authentication/confirm-email',
     failureRedirect: '/sign-up'
   })
 );
@@ -34,6 +45,27 @@ router.get('/profile', (req, res, next) => {
   } else {
     res.render('authentication/email-not-confirmed');
   }
+});
+
+router.post('/email-resent', (req, res, next) => {
+  let emailGiven = req.body;
+  console.log('Resent the email to confirm', emailGiven);
+  User.find(emailGiven)
+    .then(user => {
+      console.log('Resent the email to confirm', user[0]);
+      console.log('Resent the email to confirm', user[0].email);
+      return transporter.sendMail({
+        from: `Jan20 Test <${user[0].email}>`,
+        to: `${user[0].email}`,
+        //to: 'diogo.filipe.santos107@gmail.com',
+        subject: 'Email Resent',
+        // text: 'Hello world!'
+        html: `Click the link to confirm your Email. ${process.env.WORKING_URL}/confirm-email/${user[0]._id}`
+      });
+    })
+    .then(() => {
+      res.render('index');
+    });
 });
 
 router.get('/profile/delete/:deleteAnimal', routeGuard, (req, res, next) => {
