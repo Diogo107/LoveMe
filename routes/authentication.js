@@ -15,7 +15,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/authentication/confirm-email',
+    successRedirect: '/confirm-email',
     failureRedirect: '/sign-up'
   })
 );
@@ -32,7 +32,7 @@ router.get('/profile', (req, res, next) => {
       res.render('authentication/profile', { animal });
     });
   } else {
-    res.render('authentication/confirm-email');
+    res.render('authentication/email-not-confirmed');
   }
 });
 

@@ -72,10 +72,12 @@ router.post('/single-animal/:animalId', routeGuard, (req, res, next) => {
 router.post('/search-filter', (req, res, next) => {
   //const { body } = req;
   const body = req.body;
+  console.log(body);
   //understand which filters to apply (the first was Santi method)
   for (let key in body) {
     body[key].length > 0 ? '' : delete body[key];
   }
+  console.log('after', body);
   /* for (let key in body) {
     if (body[key].length == 0) {
       delete body[key];

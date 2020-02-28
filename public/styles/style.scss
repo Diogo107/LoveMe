@@ -272,7 +272,8 @@ aside {
 }
 
 .mainanimal {
-  right: -60px;
+  right: 0px;
+  max-width: 78%;
   position: absolute;
   top: 108px;
 }
@@ -754,6 +755,7 @@ body {
   width: 1em;
   transition: transform 0.2s;
   :hover {
+    transform: rotate(45deg);
     transform: scale(1.2);
   }
   img {
@@ -919,4 +921,8 @@ body {
 }
 .cardcontent p:nth-child(2) {
   font-size: 0.9em;
+}
+
+.max-width {
+  max-width: 73%;
 }

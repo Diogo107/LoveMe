@@ -7,8 +7,8 @@ const User = require('./models/user');
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('nodemailer');
 
-const EMAIL = 'ih174test@gmail.com';
-const PASSWORD = 'IH174@lis';
+const EMAIL = 'pick.me.today.adoption@gmail.com';
+const PASSWORD = 'adoption123';
 
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
