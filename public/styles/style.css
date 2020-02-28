@@ -732,9 +732,31 @@ body {
 .max-width {
   max-width: 73%; }
 
+/* 
 .hover {
-  transition: all 0.2s ease-in-out; }
-  :hover .hover img {
-    transform: scale(1.1); }
+  transition: all 0.2s ease-in-out;
+  :hover & img {
+    transform: scale(1.1);
+  }
+}
+ */
+.list {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  padding-top: 100px; }
+  .list h1 {
+    margin: 5px; }
+  .list h2 {
+    text-align: center; }
+  .list a {
+    transition: all 0.2s ease-in-out; }
+    .list a :hover {
+      transform: scale(1.05); }
+
+.entrie {
+  padding: 25px 15px;
+  background-color: rgba(255, 255, 255, 0.7); }
 
 /*# sourceMappingURL=style.css.map */

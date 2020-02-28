@@ -1,0 +1,36 @@
+{{!-- {{!-- <h1 background-color="black"> </h1> --}}
+
+<div id="center">
+  <h1>{{animal.user}}</h1>
+</div>
+ --}}
+<div class="list">
+
+  {{#each animal}}
+
+  <div class="row border-bottom border-dark entrie">
+
+    <div class="col">
+      <a href="/animal/single-animal/{{_id}}">
+      <img src="{{photos}}" alt="" width=150px class="rounded cardimg img-fluid">
+      </a>
+    </div>
+
+    <div class="col flex-column align-content-center" width=100px>
+      <h1><u><strong>Specie</strong></u></h1>
+      <h2>{{specie}}</h2>
+    </div>
+
+    <div class="col d-flex flex-column" width=100px>
+      <h1><u><strong>Breed</strong></u></h1>
+      <h2>{{breed}}</h2>
+    </div>
+    
+  </div>
+  
+
+{{/each}}
+
+
+
+</div>
