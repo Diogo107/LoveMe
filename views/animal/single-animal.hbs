@@ -6,12 +6,19 @@
   <div class="row">
     <div class="col-3">
       <figure>
-          <img src="{{animal.photos}}" alt="{{animal.name}}'s Photo" class="img-fluid">
+          <img src="{{animal.photos}}" alt="{{animal.name}}'s Photo" class="img-fluid" >
       </figure>
-      <div>
-        <h3>{{animal.user.name}} </h3>
+      <a href="/profile/{{animal.user._id}}">
+        <div class="background3">
+          <figure class="hover">
+            <img src="{{animal.user.picture}}" alt="User Photo" width=100%>
+          </figure>
+          <div id="center">
+          <h1>{{animal.user.name}} </h3>
+          </div>
+        </div>
       </div>
-    </div>
+      </a>
     <div class="col-6 background" class="single-text">
       <span><strong>Name</strong>: {{animal.name}}</span>
       <br />

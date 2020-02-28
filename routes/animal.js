@@ -143,6 +143,8 @@ router.get('/single-animal/:animalId', (req, res, next) => {
   console.log('i am here', req.params.animalId);
   const id = req.params.animalId;
   Animal.findById(id)
+    .populate('user')
+    //    .populate('user')
     .then(animal => {
       console.log(animal);
       console.log('Is this working?');
@@ -154,12 +156,3 @@ router.get('/single-animal/:animalId', (req, res, next) => {
 });
 
 module.exports = router;
-
-/* specie: 'cat',
-  'animal-age': 'lessThenOne',
-  'animal-gender': 'male',
-  'animal-size': 'small',
-  'animal-vaccination': 'yes',
-  'animal-castration': 'yes',
-  'animal-description': 'asfaga'
- */
